@@ -9,11 +9,6 @@ class User(AbstractUser):
 
 
 class Pet(models.Model):
-    # user = models.ForeignKey(
-    #     User,
-    #     on_delete=models.CASCADE,
-    #     related_name="pet"
-    #     )
     email = models.EmailField(max_length=254, null=True, blank=True)
     birthday = models.DateTimeField()
     passing_date = models.DateTimeField()
