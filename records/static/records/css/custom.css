@@ -1,0 +1,42 @@
+/* custom.css */
+
+:root {
+    --davys-gray: #555B63ff;
+    --indigo-dye: #0F4A62ff;
+    --moonstone: #619EB5ff;
+    --aero: #34AFD8ff;
+    --old-gold: #D7BF48ff;
+    --arylide-yellow: #F0DA6Cff;
+    --platinum: #E0E7E7ff;
+    --antiflash-white: #F6F7F9ff;
+    --white: #FEFEFEff;
+    --white-2: #FFFFFFff;
+  }
+  
+  /* Customize Bootstrap components */
+  .btn-primary {
+    background-color: var(--indigo-dye);
+    border-color: var(--indigo-dye);
+  }
+  
+  .btn-secondary {
+    background-color: var(--moonstone);
+    border-color: var(--moonstone);
+  }
+  
+  /* Customize other elements */
+  body {
+    background-color: var(--antiflash-white);
+  }
+  
+  .navbar {
+    background-color: var(--indigo-dye);
+  }
+  
+  .nav-link {
+    color: var(--davys-gray);
+  }
+  
+  .nav-link:hover {
+    color: var(--aero);
+  }
