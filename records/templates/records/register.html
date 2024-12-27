@@ -1,5 +1,84 @@
 {% extends "records/layout.html" %}
 
 {% block body %}
-    Register form
+<!-- <div class="container">
+    <h1 class="my-4">Pet Details Form</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div> -->
+<section id="register">
+    <div class="container-lg">
+        <div class="class text-center">
+            <h2>Register</h2>
+            <p class="class registration">Information is anonymized and used for IMHA research purposes only.</p>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="class col-lg-6">
+                <form method="post" novalidate>
+                    <label for="email" class="form-label">Email address:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                    <!-- {{ form.email }} -->
+                    <input type="email" class="form-control" id="email" placeholder="e.g.mario@example.com">
+                    </div>
+
+                    <label for="name" class="form-label">Name:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        <input type="text" class="form-control" id="name" placeholder="e.g. Mario">                    
+                        <!-- {{ form.breed }} -->
+                    </div>
+
+                    
+                    <label for="subject" class="form-label">What is your question about?</label>
+                    <select class="form-select" id="subject">
+                        <option value="pricing" selected>Pricing query</option>
+                        <option value="content">Content query</option>
+                        <option value="other">Other query</option>
+                    </select>
+                    <div class="form-floating mb-4 mt-4">
+                        <textarea name="" id="" class="form-control" style="height: 140px"></textarea>
+                        <label for="query">Your query...</label>
+                    </div>
+                    <div class="mb-4 text-center">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<div class="container">
+    <h1 class="my-4">Pet Details Form</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.email.label_tag }} <!-- Render the label -->
+            {{ form.email }} <!-- Render the input field -->
+            {{ form.email.errors }} <!-- Render validation errors -->
+        </div>
+        <div class="mb-3">
+            {{ form.birthday.label_tag }}
+            {{ form.birthday }}
+            {{ form.birthday.errors }}
+        </div>
+        <div class="mb-3">
+            {{ form.passing_date.label_tag }}
+            {{ form.passing_date }}
+            {{ form.passing_date.errors }}
+        </div>
+        <!-- Add other fields here in the same way -->
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
 {% endblock %}
