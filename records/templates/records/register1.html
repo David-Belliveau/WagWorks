@@ -1,0 +1,423 @@
+
+
+{% extends "records/layout.html" %}
+{% load form_tags %}
+
+{% block body %}
+<section id="register">
+    <div class="container-lg">
+        <div class="class text-center">
+            <h2>Register</h2>
+            <p class="class registration">Information is anonymized and used for IMHA research purposes only.</p>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="class col-lg-6">
+                <form method="post" novalidate>
+
+                    <label for="name" class="form-label">Pet name:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        {{ form.pet_name }}
+                    </div>
+
+                    <label for="name" class="form-label">Breed:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        {{ form.breed }}
+                    </div>
+
+
+                    <label for="email" class="form-label">Email address:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+
+                    <label for="birthday" class="form-label">Pet Birthday:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.birthday }}
+                    </div>
+
+                    <label for="diagnosis_date" class="form-label">Date of IMHA diagnosis:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.diagnosis_date }}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-8 mb-4">
+                            <label for="blood_transfusion" class="form-label">Did your pet receive a blood transfusion?</label>
+                            <div class="mb-4 input-group">
+                                <!-- <div class="form-check form-switch"> -->
+                                    {{ form.blood_transfusion }}
+                                    <label class="form-check-label" for="blood_transfusion">&nbsp;Yes</label> 
+                                    <!-- <label class="form-check-label" for="blood_transfusion">Yes</label> -->
+                                <!-- </div> -->
+                                <!-- {{ form.blood_transfusion }} &nbsp; Yes -->
+                            </div>    
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-4">
+                            <label for="num_transfusions" class="form-label">How many?</label>
+                            <div class="mb-4 input-group">
+                                <div class="col-sm-5">
+                                    <!-- <span class="input-group-text">
+                                        <i class="bi bi-person-fill"></i>
+                                    </span> -->
+                                    {{ form.num_transfusions }}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row mb-2">
+                        Medications:
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-3 mb-4">
+                            <div class="mb-4 input-group">
+                                <!-- <div class="form-check form-switch"> -->
+                                    {{ form.prednisone }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Prednisone</label> 
+                            </div>    
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.dexamethasone }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Dexamethasone</label> 
+                            </div>   
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-3 mb-4">
+                            <div class="mb-4 input-group">
+                                <!-- <div class="form-check form-switch"> -->
+                                    {{ form.doxycycline }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Doxycycline</label> 
+                            </div>    
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.cyclosporine }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Cyclosporine</label> 
+                            </div>   
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.mycophenolate }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Mycophenolate</label> 
+                            </div>   
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.azathioprine }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Azathioprine</label> 
+                            </div>   
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-12 mb-4">
+                            <label for="num_transfusions" class="form-label">Other (separated by commas):</label>
+                            <div class="mb-4 input-group">
+                                <!-- <div class="col"> -->
+                                    {{ form.other_medications }}
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+<!--                     
+                    <label for="blood_transfusion" class="form-label">Did your pet receive a blood transfusion?</label>
+                    <div class="row align-items-center mb-4">
+                        <div class="col-auto">
+
+                            {{ form.blood_transfusion }} <span>Yes</span>
+                        </div>
+                        <div class="col-auto">
+
+                            <label for="num_transfusions" class="visually-hidden">How many?</label>
+                            {{ form.num_transfusions|add_class:"w-50" }}
+                        </div>
+                    </div>
+                     -->
+
+                     
+                    <label for="prescriptions" class="form-label">Prescriptions:</label>
+                    <div class="mb-4 input-group">
+                        <!-- <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span> -->
+                        {{ form.prescriptions }}
+                    </div>
+
+                    <label for="subject" class="form-label">What is your question about?</label>
+                    <select class="form-select" id="subject">
+                        <option value="pricing" selected>Pricing query</option>
+                        <option value="content">Content query</option>
+                        <option value="other">Other query</option>
+                    </select>
+
+
+                    <div class="form-floating mb-4 mt-4">
+                        <textarea name="" id="" class="form-control" style="height: 140px"></textarea>
+                        <label for="query">Your query...</label>
+                    </div>
+                    <div class="mb-4 text-center">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+
+
+                    
+
+                    
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}
+
+
+____________
+
+{% extends "records/layout.html" %}
+{% load form_tags %}
+
+{% block body %}
+<!-- <div class="container">
+    <h1 class="my-4">Pet Details Form</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div> -->
+<section id="register">
+    <div class="container-lg">
+        <div class="class text-center">
+            <h2>Register</h2>
+            <p class="class registration">Information is anonymized and used for IMHA research purposes only.</p>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="class col-lg-6">
+                <form method="post" novalidate>
+<!-- 
+                    {% for field in form %}
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label> 
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ field }} 
+                    </div>
+                    {% endfor %}
+                     -->
+
+                    <label for="name" class="form-label">Pet name:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        {{ form.pet_name }}
+                    </div>
+
+                    <label for="name" class="form-label">Breed:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        {{ form.breed }}
+                    </div>
+
+
+                    <label for="email" class="form-label">Email address:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+
+                    <label for="birthday" class="form-label">Pet Birthday:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.birthday }}
+                    </div>
+
+                    <label for="diagnosis_date" class="form-label">Date of IMHA diagnosis:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.diagnosis_date }}
+                    </div>
+
+                    <label for="blood_transfusion1" class="form-label">Did your pet receive a blood transfusion?</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.blood_transfusion }}
+                    </div>          
+
+                    <!-- <label for="prescriptions" class="form-label">Prescriptions:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.prescriptions }}
+                    </div> -->
+
+                    <label for="subject" class="form-label">What is your question about?</label>
+                    <select class="form-select" id="subject">
+                        <option value="pricing" selected>Pricing query</option>
+                        <option value="content">Content query</option>
+                        <option value="other">Other query</option>
+                    </select>
+
+
+                    <div class="form-floating mb-4 mt-4">
+                        <textarea name="" id="" class="form-control" style="height: 140px"></textarea>
+                        <label for="query">Your query...</label>
+                    </div>
+                    <div class="mb-4 text-center">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+
+
+                    
+
+                    
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}
+
+
+
+
+
+___________
+
+
+{% extends "records/layout.html" %}
+{% load form_tags %}
+
+{% block body %}
+<!-- <div class="container">
+    <h1 class="my-4">Pet Details Form</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div> -->
+<section id="register">
+    <div class="container-lg">
+        <div class="class text-center">
+            <h2>Register</h2>
+            <p class="class registration">Information is anonymized and used for IMHA research purposes only.</p>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="class col-lg-6">
+                <form method="post" novalidate>
+                    <label for="email" class="form-label">Email address:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                    <!-- {{ form.email }} -->
+                    <input type="email" class="form-control" id="email" placeholder="e.g.mario@example.com">
+                    </div>
+
+                    <label for="name" class="form-label">Name:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        <!-- <input type="text" class="form-control" id="name" placeholder="e.g. Mario">                     -->
+                        {{ form.breed }}
+                    </div>
+
+                    
+                    <label for="subject" class="form-label">What is your question about?</label>
+                    <select class="form-select" id="subject">
+                        <option value="pricing" selected>Pricing query</option>
+                        <option value="content">Content query</option>
+                        <option value="other">Other query</option>
+                    </select>
+                    <div class="form-floating mb-4 mt-4">
+                        <textarea name="" id="" class="form-control" style="height: 140px"></textarea>
+                        <label for="query">Your query...</label>
+                    </div>
+                    <div class="mb-4 text-center">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<div class="container">
+    <h1 class="my-4">Pet Details Form</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.email.label_tag }} <!-- Render the label -->
+            {{ form.email }} <!-- Render the input field -->
+            {{ form.email.errors }} <!-- Render validation errors -->
+        </div>
+        <div class="mb-3">
+            {{ form.birthday.label_tag }}
+            {{ form.birthday }}
+            {{ form.birthday.errors }}
+        </div>
+        <div class="mb-3">
+            {{ form.passing_date.label_tag }}
+            {{ form.passing_date }}
+            {{ form.passing_date.errors }}
+        </div>
+        <!-- Add other fields here in the same way -->
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
+{% endblock %}
