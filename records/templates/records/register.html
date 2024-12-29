@@ -1,3 +1,225 @@
+{% extends "records/layout.html" %}
+<!-- {% load form_tags %} -->
+
+{% block body %}
+<section id="register">
+    <div class="container-lg">
+        <div class="class text-center">
+            <h2>Register</h2>
+            <p class="class registration">Information is anonymized and used for IMHA research purposes only.</p>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="class col-lg-6">
+                <form action="{% url 'register' %}" novalidate method="post">
+                <!-- <form method="post" action="{% url 'register' %}" novalidate> -->
+                    
+                    {% csrf_token %}
+
+                    <label for="name" class="form-label">Pet name:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        {{ form.pet_name }}
+                        {{ form.pet_name.errors }}
+                    </div>
+
+                    <label for="name" class="form-label">Breed:</label>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+                        </span>
+                        {{ form.breed }}
+                        {{ form.breed.errors }}
+                    </div>
 
 
+                    <label for="email" class="form-label">Email address:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                        <!-- <div class="error-box">
+                            <span class="error-text">{{ form.email.errors|striptags }}</span>
+                        </div> -->
+                    </div>
 
+                    <label for="birthday" class="form-label">Pet Birthday:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.birthday }}
+                        {{ form.birthday.errors }}
+                    </div>
+
+                    <label for="diagnosis_date" class="form-label">Date of IMHA diagnosis:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.diagnosis_date }}
+                        {{ form.diagnosis_date.errors }}
+                    </div>
+
+
+                    <label for="passing_date" class="form-label">Date of pet's passing (if applicable):</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.passing_date }}
+                        {{ form.passing_date.errors }}
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12 col-md-8 mb-4">
+                            <label for="blood_transfusion" class="form-label">Did your pet receive a blood transfusion?</label>
+                            <div class="mb-4 input-group">
+                                <!-- <div class="form-check form-switch"> -->
+                                    {{ form.blood_transfusion }}
+                                    {{ form.blood_transfusion.errors }}
+                                    <label class="form-check-label" for="blood_transfusion">&nbsp;Yes</label> 
+                                    <!-- <label class="form-check-label" for="blood_transfusion">Yes</label> -->
+                                <!-- </div> -->
+                                <!-- {{ form.blood_transfusion }} &nbsp; Yes -->
+                            </div>    
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-4">
+                            <label for="num_transfusions" class="form-label">How many?</label>
+                            <div class="mb-4 input-group">
+                                <div class="col-sm-5">
+                                    <!-- <span class="input-group-text">
+                                        <i class="bi bi-person-fill"></i>
+                                    </span> -->
+                                    {{ form.num_transfusions }}
+                                    {{ form.num_transfusions.errors }}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row mb-2">
+                        Medications:
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-3 mb-0">
+                            <div class="mb-4 input-group">
+                                <!-- <div class="form-check form-switch"> -->
+                                    {{ form.prednisone }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Prednisone</label> 
+                            </div>    
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-0">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.dexamethasone }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Dexamethasone</label> 
+                            </div>   
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-3 mb-4">
+                            <div class="mb-4 input-group">
+                                <!-- <div class="form-check form-switch"> -->
+                                    {{ form.doxycycline }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Doxycycline</label> 
+                            </div>    
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.cyclosporine }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Cyclosporine</label> 
+                            </div>   
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.mycophenolate }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Mycophenolate</label> 
+                            </div>   
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-4">
+                            <!-- <label for="dexamethasone" class="form-label">Dexamethasone?</label> -->
+                            <div class="mb-4 input-group">
+                                    {{ form.azathioprine }}
+                                    <label class="form-check-label" for="prednisone">&nbsp;Azathioprine</label> 
+                            </div>   
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-12 mb-4">
+                            <label for="num_transfusions" class="form-label">Other (separated by commas):</label>
+                            <div class="mb-4 input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-person-fill"></i>
+                                </span>
+                                <!-- <div class="col"> -->
+                                    {{ form.other_medications }}
+                                    {{ form.other_medications.errors }}
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <label for="prescriptions" class="form-label">Prescriptions:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.prescriptions }}
+                    </div> -->
+<!-- 
+                    <label for="subject" class="form-label">What is your question about?</label>
+                    <select class="form-select" id="subject">
+                        <option value="pricing" selected>Pricing query</option>
+                        <option value="content">Content query</option>
+                        <option value="other">Other query</option>
+                    </select>
+
+
+                    <div class="form-floating mb-4 mt-4">
+                        <textarea name="" id="" class="form-control" style="height: 140px"></textarea>
+                        <label for="query">Your query...</label>
+                    </div> -->
+
+                    
+                    <label for="additional_information" class="form-label">Additional Information:</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        {{ form.additional_information }}
+                        {{ form.additional_information.errors }}
+                    </div>
+
+
+                    <div class="mb-4 text-center">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+
+                    
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}
