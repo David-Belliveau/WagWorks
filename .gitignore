@@ -27,3 +27,6 @@ db.sqlite3
 # Other
 *.bak
 *.swp
+
+# Folders
+inspo/
