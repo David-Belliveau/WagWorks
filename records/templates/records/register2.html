@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Step-by-Step Form</title>
+</head>
+<body>
+    <h1>Step {{ wizard.steps.current|add:1 }} of {{ wizard.steps.count }}</h1>
+
+    <!-- Render the form -->
+    <form method="post">
+        {% csrf_token %}
+        {{ wizard.management_form }}
+        {{ wizard.form.as_p }}
+        <button type="submit">
+            {% if wizard.steps.current|add:1 == wizard.steps.count %}Submit{% else %}Next{% endif %}
+        </button>
+    </form>
+
+    <!-- Display progress -->
+    <div>
+        {% for step in wizard.steps.all %}
+            <span {% if step == wizard.steps.current %}style="font-weight: bold;"{% endif %}>
+                {{ step|title }}
+            </span>
+        {% endfor %}
+    </div>
+</body>
+</html>

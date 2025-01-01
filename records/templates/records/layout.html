@@ -1,64 +1,80 @@
 {% load static %}
-<!-- {% load form_tags %} -->
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}WagWorks{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/records/css/custom.css"> 
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}WagWorks{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/records/css/custom.css"> 
+
+
+  <header>
+  <!-- Social Links Bar -->
+  <div class="bg-secondary py-1">
+    <div class="container d-flex justify-content-end align-items-center">
+      <!-- Social Icons -->
+      <a href="#" class="text-social me-3">Facebook</a>
+      <a href="#" class="text-social me-3">Twitter</a>
+      <a href="#" class="text-social">Instagram</a>
+    </div>
+  </div>
+
+    <!-- Logo Section: Inside the Navbar for Left Alignment -->
+    <nav class="navbar navbar-expand-lg navbar-light py-3", style="background-color: #FFFFFF;">
       <div class="container">
-        <a 
-            href = "#"
-            class="navbar-brand mb-0 h1">
-              <img
-              class="d-inline-block  align-top"
-              src = "{% static 'records/images/logo_small.png' %}" width="50" height="50" />
-              WagWorks
+        <!-- Logo aligned with the leftmost link in the menu -->
+        <a href="#" class="navbar-brand">
+          <img src="{% static 'records/images/logo_small.png' %}" width="80" height="90" alt="WagWorks Logo"/>
+          <span class="fw-bold ms-2">WagWorks</span>
         </a>
-        <button 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav" 
-          class="navbar-toggler" 
-          aria-controls="navbarNav" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
+
+        <!-- Toggler Button for Small Screens -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div 
-          class="collapse navbar-collapse"
-          id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a href="#" class="nav-link active">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'register' %}" class="nav-link">Register</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'about' %}" class="nav-link">Who We Are</a>
-            </li>
-          </ul>
+
+        <!-- Menu Links Section: Below the Logo -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="row w-100">
+            <!-- Menu Items (Centered and Spread Out) -->
+            <div class="col-12">
+              <ul class="navbar-nav mx-auto" style="font-size: 1.25rem; letter-spacing: 1px; justify-content: space-evenly; padding-left: 20px; padding-right: 20px;">
+                <li class="nav-item">
+                  <a href="{% url 'index' %}" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'about' %}" class="nav-link">Who We Are</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'mission' %}" class="nav-link">What We Do</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'register' %}" class="nav-link">Register Your Dog</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
 
-
-    <div class="body">
-      {% block body %}
-      {% endblock %}
-    </div>
+  </header>
 
 
+</head>
+<body>
+<div class="body">
+  {% block body %}
+  {% endblock %}
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  
+</body>
+
+
 </html>

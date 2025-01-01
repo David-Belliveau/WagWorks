@@ -1,0 +1,126 @@
+{% extends "records/layout.html" %}
+
+{% block body %}
+
+
+<div class="container-fluid p-0"> 
+    <div class="row align-items-center">
+
+        <div class="position-relative text-center text-white">
+
+            <div class="bg-white text-light py-5" style="background-image: url('../../static/records/images/mission_banner3.png'); background-size: cover; background-position: center;"></div>
+                <!-- <div class="bg-overlay position-absolute start-0" style="background-color: #ffffff";></div>  -->
+            </div> 
+
+
+        <!-- Text Content Over the Image -->
+        <div class="position-absolute top-50 translate-middle-y ps-5 text-white" style="z-index: 2; width: 50%; left: 10%; background: transparent;">
+            <h4 class="fw-bold py-5" style="color:#555B63ff">Better data means better outcomes.</h4>
+            <h4 class="fw-bold display-8" style="color:#555B63ff">IMHA remains a mystery because we lack the resources to study it.</h1>
+            <p class="text-black fs-5">
+                <!-- If you've experienced IMHA, your input can help others. We're working together to build the data needed to fight IMHA and improve treatment options—without profit, just a shared commitment to saving lives. -->
+                <!-- Better data means better outcomes. IMHA remains a mystery because we lack the resources to study it. Together, we can change that—one story at a time. -->
+                Together, we can change that—one story at a time.
+            </p>
+            <a href="{% url 'register' %}" class="btn btn-danger btn-lg text-white">
+                <!-- Contribute to IMHA Research <i class="bi bi-arrow-right"></i> -->
+                Add your experience <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    
+        <!-- Background Image -->
+        <div class="bg-black text-light py-5 text-center" style="background-image: url('../../../images/dog1.png'); background-size: cover; background-position: center;">
+            <div class="bg-overlay position-absolute start-0 text-center"></div>
+
+                <!-- Hero Content -->
+                <h1 class="position-relative z-1">By sharing your dog's journey, you're making a real impact.</h1>
+                <!-- <h1 class="position-relative z-1">With IMHA research limited and so few dogs studied, each new story brings us one step closer to better treatment and saving more lives.</h1> -->
+
+                <!-- Blocks -->
+                <div class="row justify-content-center position-relative z-1 mt-4">
+                    <div class="col-md-2 text-center block p-3 bg-white rounded shadow m-3 block-spacing">
+                        <div class="block-top">
+                            <img src="../../static/records/images/block1a.jpg" alt="Small Dog" class="img-fluid">
+                            <!-- <p> Image </p> -->
+                        </div>
+                        <div class="block-middle">
+                            <h3>Adopt an Animal</h3>
+                            <p>Find your new best friend today!</p>
+                        </div>
+                        <div class="block-bottom">
+                            <a href="#" class="btn btn-primary">Available Pets</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-center block p-3 bg-white rounded shadow m-3 block-spacing">
+                        <div class="block-top">
+                            <img src="../../static/records/images/block2a.jpg" alt="Small Dog" class="img-fluid">
+                            <!-- <p> Image </p> -->
+                        </div>
+                        <div class="block-middle">
+                            <h3>Adopt an Animal</h3>
+                            <p>Find your new best friend today!</p>
+                        </div>
+                        <div class="block-bottom">
+                            <a href="#" class="btn btn-primary">Available Pets</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2 text-center block p-3 bg-white rounded shadow m-3 block-spacing">
+                        <div class="block-top">
+                            <img src="../../static/records/images/block3a.jpg" alt="Small Dog" class="img-fluid">
+                            <!-- <p> Image </p> -->
+                        </div>
+                        <div class="block-middle">
+                            <h3>Adopt an Animal</h3>
+                            <p>Find your new best friend today!</p>
+                        </div>
+                        <div class="block-bottom">
+                            <a href="#" class="btn btn-primary">Available Pets</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- <div class="row justify-content-center position-relative z-1 mt-4">
+                    <div class="col-md-2 text-center p-3 bg-white rounded shadow m-2">
+                        <h3>Adopt an Animal</h3>
+                        <p>Say some stuffsadf asdf as fa sfas f as f asf asd fas f sa fas f sa fs af as here</p>
+                        <a href="#" class="btn btn-primary">Available Pets</a>
+                    </div>
+                    <div class="col-md-2 text-center p-3 bg-white rounded shadow m-2">
+                        <h3>Wildlife Rehab</h3>
+                        <p>We care for injured wildlife.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                    <div class="col-md-2 text-center p-3 bg-white rounded shadow m-2">
+                        <h3>Veterinary Centers</h3>
+                        <p>We provide low-cost medical care for pets.</p>
+                        <a href="#" class="btn btn-primary">View Services</a>
+                    </div>
+                    <div class="col-md-2 text-center p-3 bg-white rounded shadow m-2">
+                        <h3>Adopt an Animal</h3>
+                        <p>Your new best friend is waiting!</p>
+                        <a href="#" class="btn btn-primary">Available Pets</a>
+                    </div>
+                </div> -->
+        </div>
+
+            
+
+ {% endblock %}
+
+
+
+
+
+ .overlay-text {
+    position: absolute; /* Position the text absolutely within the .block-top */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Correct centering offset */
+    color: white; /* Ensure the text is visible */
+    font-size: 2.0rem; /* Adjust text size as needed */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for better contrast */
+    z-index: 2; /* Ensure text appears above the image */
+  }
