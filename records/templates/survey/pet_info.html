@@ -1,0 +1,188 @@
+{% extends "records/layout.html" %}
+
+
+{% block body %}
+
+<h1>IMHA Survey</h1>
+
+<form id="imha-survey-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Pet Info Section -->
+    <div class="form-section active" id="section-pet-info" >
+        <h2>Pet Information</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required>
+
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>---</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="weight">Weight (lbs):</label>
+        <input type="number" id="weight" name="weight" step="0.1" required>     
+
+        <label for="spayed_neutered">Spayed/Neutered:</label>
+        <input type="checkbox" id="spayed_neutered" name="spayed_neutered">
+
+        <button type="button" class="back-button disabled">Back</button>
+        <button type="button" class="next-button">Next</button>
+
+    </div>
+    
+    <!-- Diagnosis Section -->
+    <div class="form-section" id="section-diagnosis">
+        <h2>Diagnosis</h2>
+
+        <label for="diagnostic_date">Diagnositc date:</label>
+        <input type="date" id="diagnostic_date" name="diagnostic_date" required>
+
+        <label for="diagnostic-method">Diagnostic Method:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled select>---</option>
+            <option value="routine_bloodwork">Routine Bloodwork</option>
+            <option value="vet_visit_symptoms">Vet Visit</option>
+            <option value="emergency_visit">Emergency Visit</option>
+            <option value="other">Other (please specifify)</option>
+        </select>
+
+        <label for="RBC">RBC Count at Diagnosis:</label>
+        <input type="number" id="RBC" name="RBC" step="1">
+
+
+        <label for="initial_symptoms">Initial Symptoms:</label>
+        <select id="initial_symptoms" name="initial_symptoms" multiple>
+            <option value="lethargy">Lethargy</option>
+            <option value="weakness">Weakness</option>
+            <option value="pale_gums">Pale Gums</option>
+            <option value="fever">Fever</option>
+            <option value="loss_appetite">Loss of Appetite</option>
+            <option value="vomiting">Vomiting</option>
+            <option value="diarrhea">Diarrhea</option>
+            <option value="jaundice">Jaundice</option>
+            <option value="difficulty_breathing">Difficulty Breathing</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="other_initial_symptoms">Other:</label>
+        <input type="text" id="other_initial_symptoms" name="other_initial_symptoms">
+
+        <button type="button" class="back-button">Back</button>
+        <button type="button" class="next-button">Next</button>
+    </div>
+
+    <!-- Treatment Section -->
+    <div class="form-section" id="section-treatment">
+        <h2>Treatment</h2>
+
+        <label for="medications"></label>
+        <input type="text" id="medications" name="medications">
+
+        <label for="duration"></label>
+        <select id="duration" name="duration" multiple>
+            <option value="LT-1WEEK">Less than 1 week</option>
+            <option value="BETWEEN_1_2_WEEKS">1-2 Weeks</option>
+            <option value="BETWEEN_3_4_WEEKS">3-4 Weeks</option>
+            <option value="OVER_5_WEEKS">5+ Weeks</option>
+        </select>
+
+        <label for="RBC">RBC:</label>
+        <input type="number" id="RBC" name="RBC" step="1">
+        
+        <label for="PCV">PCV:</label>
+        <input type="number" id="PCV" name="PCV" step="1">
+        
+        <label for="RET">RET:</label>
+        <input type="number" id="RET" name="RET" step="1">
+        
+        <label for="treatment_adjusted">Was there a change in treatment?</label>
+        <input type="radio" id="treatment_adjusted" name="treatment_adjusted">
+
+        <button type="button" class="back-button">Back</button>
+        <button type="button" class="next-button">Next</button>
+    </div>
+
+    <div class="form-section" id="section-longtermcare">
+        <h2> Long Term Care</h2>
+
+        <label for="quality_of_life"></label>
+        <select name="quality_of_life" id="quality_of_life">
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="fair">Fair</option>
+            <option value="poor">Poor</option>
+        </select>
+
+        <label for="personality_changes"></label>
+        <select name="personality_changes" id="personality_changes">
+            <option value="significant">Yes, signifcantly</option>
+            <option value="slight">Yes, slightly</option>
+            <option value="no">No</option>
+
+        </select>
+
+        <label for="recurrence">Recurrence</label>
+        <input type="radio" id="recurrence_yes" name="recurrence" value="yes">
+        <label for="recurrence_yes">Yes</label>
+        <input type="radio" id="recurrence_no" name="recurrence" value="no">
+        <label for="recurrence_no">No</label>
+
+        <button type="button" class="back-button">Back</button>
+        <button type="button" class="next-button">Next</button>
+    </div>
+
+    <!-- File Upload Field -->
+    <div class="form-section" id="section-uploaddocument">
+        <label for="vet_document">Upload Veterinary Documents</label>
+        <input type="file" id="vet_document" name="vet_document" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+
+        <button type="button" class="back-button">Back</button>
+        <button type="submit">Submit</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections=document.querySelectorAll(".form-section");
+            let currentSectionIndex = 0;
+
+            const showSection = (index) => {
+                sections.forEach((section, i) => {
+                    section.classList.toggle("active", i === index);
+                });
+            };
+
+            document.querySelectorAll(".next-button").forEach((button) => {
+                button.addEventListener("click", () => {
+                    if (currentSectionIndex < sections.length - 1) {
+                        currentSectionIndex++;
+                        showSection(currentSectionIndex);
+                    }
+                });
+            });
+
+            document.querySelectorAll(".back-button").forEach((button) =>{
+                button.addEventListener("click", () => {
+                    if (currentSectionIndex > 0) {
+                        currentSectionIndex--;
+                        showSection(currentSectionIndex);
+                    }
+                });
+
+            });
+
+            showSection(currentSectionIndex);
+        });
+    </script>
+
+
+
+{% endblock %}

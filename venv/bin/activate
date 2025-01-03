@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/dibsy/Library/Mobile Documents/com~apple~CloudDocs/Home Drive/Programming/Projects/WagWorks/venv"
+VIRTUAL_ENV="/Users/dibsy/Library/Mobile Documents/com~apple~CloudDocs/Home Drive/Programming/WagWorks/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

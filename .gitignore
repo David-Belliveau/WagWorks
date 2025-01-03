@@ -30,3 +30,8 @@ db.sqlite3
 
 # Folders
 inspo/
+
+
+# Specific files
+register2.html
+pet_info_old.html

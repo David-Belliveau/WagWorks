@@ -221,3 +221,43 @@
   margin-left: 2rem !important; /* Add left margin only */
   margin-right: 2rem !important; /* Add right margin only */
 }
+
+
+form {
+  max-width: 800px;
+  margin: auto;
+}
+
+.form-section {
+  display: none; /* Hide all sections by default */
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8 px;
+}
+.form-section.active {
+  display: block; /* Show the active section */
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--moonstone);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--indigo-dye);
+}

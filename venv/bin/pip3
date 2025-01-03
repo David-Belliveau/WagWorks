@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/dibsy/Library/Mobile Documents/com~apple~CloudDocs/Home Drive/Programming/Projects/WagWorks/venv/bin/python3" "$0" "$@"
+'''exec' "/Users/dibsy/Library/Mobile Documents/com~apple~CloudDocs/Home Drive/Programming/WagWorks/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
