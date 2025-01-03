@@ -4,6 +4,6 @@ from django.contrib import admin
 from django.contrib import admin
 from .models import Pet
 
-@admin.register(Pet)
-class PetAdmin(admin.ModelAdmin):
-    list_display = ('pet_name', 'breed', 'email', 'birthday')  # Field names to display
+# @admin.register(Pet)
+# class PetAdmin(admin.ModelAdmin):
+#     list_display = ('pet_name', 'breed', 'email', 'birthday')  # Field names to display
